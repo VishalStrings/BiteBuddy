@@ -13,7 +13,7 @@ namespace BiteBuddy.Services.ProductAPI.Models
 
         public string? Description { get; set; }
 
-        public decimal Price { get; set; }
+        public decimal? Price { get; set; }
 
         public string? ImageUrl { get; set; }
         public string? ImageLocalPath { get; set; }

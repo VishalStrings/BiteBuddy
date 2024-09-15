@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BiteBuddy.Services.ProductAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240914182723_addProductsToDB2")]
-    partial class addProductsToDB2
+    [Migration("20240915153216_addProductMigration")]
+    partial class addProductMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -52,7 +52,7 @@ namespace BiteBuddy.Services.ProductAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
+                    b.Property<decimal?>("Price")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("ProductCategoryId")
@@ -72,23 +72,23 @@ namespace BiteBuddy.Services.ProductAPI.Migrations
                         {
                             ProductId = 1,
                             Code = "C001",
-                            CreatedDate = new DateTime(2024, 9, 14, 23, 57, 23, 318, DateTimeKind.Local).AddTicks(197),
+                            CreatedDate = new DateTime(2024, 9, 15, 21, 2, 15, 894, DateTimeKind.Local).AddTicks(8453),
                             Description = "Soft drink",
                             Name = "Coke",
                             Price = 1.5m,
                             ProductCategoryId = 1,
-                            UpdatedDate = new DateTime(2024, 9, 14, 23, 57, 23, 318, DateTimeKind.Local).AddTicks(208)
+                            UpdatedDate = new DateTime(2024, 9, 15, 21, 2, 15, 894, DateTimeKind.Local).AddTicks(8462)
                         },
                         new
                         {
                             ProductId = 2,
                             Code = "S001",
-                            CreatedDate = new DateTime(2024, 9, 14, 23, 57, 23, 318, DateTimeKind.Local).AddTicks(214),
+                            CreatedDate = new DateTime(2024, 9, 15, 21, 2, 15, 894, DateTimeKind.Local).AddTicks(8467),
                             Description = "Crispy snack",
                             Name = "Chips",
                             Price = 2.0m,
                             ProductCategoryId = 2,
-                            UpdatedDate = new DateTime(2024, 9, 14, 23, 57, 23, 318, DateTimeKind.Local).AddTicks(214)
+                            UpdatedDate = new DateTime(2024, 9, 15, 21, 2, 15, 894, DateTimeKind.Local).AddTicks(8468)
                         });
                 });
 

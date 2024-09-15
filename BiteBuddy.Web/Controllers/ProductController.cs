@@ -9,22 +9,23 @@ namespace BiteBuddy.Web.Controllers
     public class ProductController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly ICouponService _couponService;
+        private readonly IProductService _productService;
 
-        public ProductController(ILogger<HomeController> logger, ICouponService couponService)
+        public ProductController(ILogger<HomeController> logger, IProductService productService)
         {
             _logger = logger;
-            _couponService = couponService;
+            _productService = productService;
         }
-
+        
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
-            List<CouponDto>? list = new();
+            List<ProductDto>? list = new();
 
-            ResponseDto? responseDto = await _couponService.GetAllCouponAsync();
-            if (responseDto != null && responseDto.IsSuccess == true)
+            ResponseDto? responseDto = await _productService.GetAllProductsAsync();
+            if (responseDto != null && responseDto.IsSuccess)
             {
-                list = JsonConvert.DeserializeObject<List<CouponDto>>(Convert.ToString(responseDto.Result));
+                list = JsonConvert.DeserializeObject<List<ProductDto>>(Convert.ToString(responseDto.Result));
             }
             else
             {
@@ -45,15 +46,15 @@ namespace BiteBuddy.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CouponDto couponDto)
+        public async Task<IActionResult> Create(ProductDto productDto)
         {
             if (ModelState.IsValid)
             {
-                ResponseDto response = await _couponService.CreateCouponAsync(couponDto);
+                ResponseDto response = await _productService.CreateProductAsync(productDto);
 
                 if (response != null && response.IsSuccess)
                 {
-                    TempData["success"] = "Coupon Created Successfully";
+                    TempData["success"] = "Product Created Successfully";
                     return RedirectToAction(nameof(Index));
                 }
                 else
@@ -61,51 +62,51 @@ namespace BiteBuddy.Web.Controllers
                     TempData["error"] = response.Message;
                 }
             }
-            return View(couponDto); //Test
+            return View(productDto); //Test
         }
 
-        public async Task<IActionResult> CouponDelete(int couponId)
+        public async Task<IActionResult> ProductDelete(int productId)
         {
-            ResponseDto responseDto = await _couponService.GetCouponByIdAsync(couponId);
+            ResponseDto responseDto = await _productService.GetProductByIdAsync(productId);
             if (responseDto != null && responseDto.IsSuccess)
             {
-                CouponDto? couponModel = JsonConvert.DeserializeObject<CouponDto>(Convert.ToString(responseDto.Result));
+                ProductDto? productModel = JsonConvert.DeserializeObject<ProductDto>(Convert.ToString(responseDto.Result));
                 //return RedirectToAction(nameof(Index));
-                return View(couponModel);
+                return View(productModel);
             }
             return NotFound();
         }
 
         [HttpPost]
-        public async Task<IActionResult> CouponDelete(CouponDto couponDto)
+        public async Task<IActionResult> ProductDelete(ProductDto productDto)
         {
-            ResponseDto responseDto = await _couponService.DeleteCouponAsync(couponDto.Id);
+            ResponseDto responseDto = await _productService.DeleteProductByIdAsync(productDto.ProductId);
             if (responseDto != null && responseDto.IsSuccess)
             {
-                TempData["success"] = "Coupon deleted successfully";
+                TempData["success"] = "Product deleted successfully";
                 return RedirectToAction(nameof(Index));
             }
             else
             {
                 TempData["error"] = responseDto?.Message;
             }
-            return View(couponDto);
+            return View(productDto);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CouponUpdate(CouponDto couponDto)
+        public async Task<IActionResult> ProductUpdate(ProductDto productDto)
         {
-            ResponseDto responseDto = await _couponService.UpdateCouponAsync(couponDto.Id);
+            ResponseDto responseDto = await _productService.UpdateProductAsync(productDto);
             if (responseDto != null && responseDto.IsSuccess)
             {
-                TempData["success"] = "Coupon updated successfully";
+                TempData["success"] = "Product updated successfully";
                 return RedirectToAction(nameof(Index));
             }
             else
             {
                 TempData["error"] = responseDto?.Message;
             }
-            return View(couponDto);
+            return View(productDto);
         }
 
     }

@@ -3,30 +3,39 @@ using Microsoft.EntityFrameworkCore;
 using BiteBuddy.Services.ProductAPI.Models;
 using BiteBuddy.Services.ProductAPI.Models.Dto;
 using BiteBuddy.Services.ProductAPI.Data;
+using System.Collections.Generic;
 
 namespace BiteBuddy.Services.ProductAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/product")]
     [ApiController]
     public class ProductAPIController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
-
-        public ProductAPIController(ApplicationDbContext context)
+        private readonly ResponseDto _response;
+        public ProductAPIController(ApplicationDbContext context, ResponseDto response)
         {
             _context = context;
+            _response = response;
+                
         }
 
         // GET: api/ProductAPI
         [HttpGet]
         public async Task<ActionResult<ResponseDto>> GetProducts()
         {
-            var products = await _context.Products.ToListAsync();
-            return Ok(new ResponseDto
+            try
             {
-                Result = products,
-                IsSuccess = true
-            });
+                IEnumerable<Product> ProductList = await _context.Products.ToListAsync();
+                _response.Result = ProductList;
+            }
+
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.Message = ex.Message;
+            }
+            return _response;
         }
 
         // GET: api/ProductAPI/5

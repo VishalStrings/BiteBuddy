@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiteBuddy.Services.ProductA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiteBuddy.Services.AuthAPI", "BiteBuddy.Services.AuthAPI\BiteBuddy.Services.AuthAPI.csproj", "{08BBBF75-069B-41DE-BF01-F1F1BC298B26}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiteBuddy.Services.ShoppingCartAPI", "BiteBuddy.Services.ShoppingCartAPI\BiteBuddy.Services.ShoppingCartAPI.csproj", "{8A29F7C7-BF2E-4915-AB7E-E2135350775D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{08BBBF75-069B-41DE-BF01-F1F1BC298B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08BBBF75-069B-41DE-BF01-F1F1BC298B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08BBBF75-069B-41DE-BF01-F1F1BC298B26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A29F7C7-BF2E-4915-AB7E-E2135350775D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A29F7C7-BF2E-4915-AB7E-E2135350775D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A29F7C7-BF2E-4915-AB7E-E2135350775D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A29F7C7-BF2E-4915-AB7E-E2135350775D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 		{97A417FD-16E5-4069-B153-4E3B728C1FC4} = {7F38A95E-25DD-4CFE-AEA1-538DD8BEC23C}
 		{9DEDE06A-0EA0-4631-B3D0-BF96FA5A0D96} = {B9386EA0-8F03-4B7F-9407-1BE5ED17C68F}
 		{08BBBF75-069B-41DE-BF01-F1F1BC298B26} = {B9386EA0-8F03-4B7F-9407-1BE5ED17C68F}
+		{8A29F7C7-BF2E-4915-AB7E-E2135350775D} = {B9386EA0-8F03-4B7F-9407-1BE5ED17C68F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5078A44D-1DC9-4C35-BB3E-0531FC2E4DDA}

@@ -1,5 +1,5 @@
-using BiteBuddy.Services.ProductAPI.Data;
-using BiteBuddy.Services.ProductAPI.Models.Dto;
+using BiteBuddy.Services.ShoppingCartAPI.Data;
+using BiteBuddy.Services.ShoppingCartAPI.Models.Dto;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -15,7 +15,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 //To start logging using Serilog
 Log.Logger = new LoggerConfiguration().MinimumLevel.Information()
-    .WriteTo.File("/log/ProductApiLogs.txt",rollingInterval:RollingInterval.Month).CreateLogger();
+    .WriteTo.File("/log/ShoppingCartApiLogs.txt", rollingInterval: RollingInterval.Month).CreateLogger();
 
 builder.Host.UseSerilog();
 

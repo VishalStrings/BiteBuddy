@@ -18,7 +18,7 @@ namespace BiteBuddy.Web.Service
             return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = SD.ApiType.POST,
-                Url = SD.ProductAPIBase + "/api/ProductAPI/",
+                Url = SD.ProductAPIBase + "/api/product/",
                 Data = ProductDto
 
             });
@@ -69,9 +69,16 @@ namespace BiteBuddy.Web.Service
             throw new NotImplementedException();
         }
 
-        public Task<ResponseDto?> GetAllProductsAsync()
+        public async Task<ResponseDto?> GetAllProductsAsync()
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = SD.ApiType.GET,
+                Url = SD.ProductAPIBase + "/api/product"
+
+            });
+
+
         }
 
         public Task<ResponseDto?> UpdateProductAsync(ProductDto productDto)

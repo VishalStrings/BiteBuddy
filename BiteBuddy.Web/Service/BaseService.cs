@@ -37,6 +37,7 @@ namespace BiteBuddy.Web.Service
             }
 
             //Uri
+            string test = requestDto.Url;
             message.RequestUri = new Uri(requestDto.Url);   
             if(requestDto.Data != null)
             {
