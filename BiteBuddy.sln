@@ -11,9 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{B9386EA0-8F03-4B7F-9407-1BE5ED17C68F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiteBuddy.Services.CouponAPI", "BiteBuddy.Services.CouponAPI\BiteBuddy.Services.CouponAPI.csproj", "{D29FA473-5CB5-4149-962D-FD207F38725D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BiteBuddy.Services.CouponAPI", "BiteBuddy.Services.CouponAPI\BiteBuddy.Services.CouponAPI.csproj", "{D29FA473-5CB5-4149-962D-FD207F38725D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiteBuddy.Web", "BiteBuddy.Web\BiteBuddy.Web.csproj", "{97A417FD-16E5-4069-B153-4E3B728C1FC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BiteBuddy.Web", "BiteBuddy.Web\BiteBuddy.Web.csproj", "{97A417FD-16E5-4069-B153-4E3B728C1FC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiteBuddy.Services.ProductAPI", "BiteBuddy.Services.ProductAPI\BiteBuddy.Services.ProductAPI.csproj", "{9DEDE06A-0EA0-4631-B3D0-BF96FA5A0D96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiteBuddy.Services.AuthAPI", "BiteBuddy.Services.AuthAPI\BiteBuddy.Services.AuthAPI.csproj", "{08BBBF75-069B-41DE-BF01-F1F1BC298B26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +33,14 @@ Global
 		{97A417FD-16E5-4069-B153-4E3B728C1FC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97A417FD-16E5-4069-B153-4E3B728C1FC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97A417FD-16E5-4069-B153-4E3B728C1FC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DEDE06A-0EA0-4631-B3D0-BF96FA5A0D96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DEDE06A-0EA0-4631-B3D0-BF96FA5A0D96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DEDE06A-0EA0-4631-B3D0-BF96FA5A0D96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DEDE06A-0EA0-4631-B3D0-BF96FA5A0D96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08BBBF75-069B-41DE-BF01-F1F1BC298B26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08BBBF75-069B-41DE-BF01-F1F1BC298B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08BBBF75-069B-41DE-BF01-F1F1BC298B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08BBBF75-069B-41DE-BF01-F1F1BC298B26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +48,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D29FA473-5CB5-4149-962D-FD207F38725D} = {B9386EA0-8F03-4B7F-9407-1BE5ED17C68F}
 		{97A417FD-16E5-4069-B153-4E3B728C1FC4} = {7F38A95E-25DD-4CFE-AEA1-538DD8BEC23C}
+		{9DEDE06A-0EA0-4631-B3D0-BF96FA5A0D96} = {B9386EA0-8F03-4B7F-9407-1BE5ED17C68F}
+		{08BBBF75-069B-41DE-BF01-F1F1BC298B26} = {B9386EA0-8F03-4B7F-9407-1BE5ED17C68F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5078A44D-1DC9-4C35-BB3E-0531FC2E4DDA}

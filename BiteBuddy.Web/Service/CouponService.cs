@@ -18,7 +18,8 @@ namespace BiteBuddy.Web.Service
             return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = SD.ApiType.POST,
-                Url = SD.CouponAPIBase + "/api/CouponAPI/"
+                Url = SD.CouponAPIBase + "/api/CouponAPI/",
+                Data = couponDto
 
             });
         }
@@ -43,7 +44,7 @@ namespace BiteBuddy.Web.Service
            });
         }
 
-        public async Task<ResponseDto?> GetCouponAsync(int id)
+        public async Task<ResponseDto?> GetCouponByIdAsync(int id)
         {
             return await _baseService.SendAsync(new RequestDto()
             {

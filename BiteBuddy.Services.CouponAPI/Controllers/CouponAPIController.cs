@@ -2,13 +2,16 @@
 using BiteBuddy.Services.CouponAPI.Data;
 using BiteBuddy.Services.CouponAPI.Models;
 using BiteBuddy.Services.CouponAPI.Models.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BiteBuddy.Services.CouponAPI.Controllers
 {
     [Route("api/[controller]")]
+    //[Route("api/coupon")]
     [ApiController]
+    [Authorize]
     public class CouponAPIController : ControllerBase
     {
         private readonly ApplicationDBContext _dbContext;
@@ -82,23 +85,21 @@ namespace BiteBuddy.Services.CouponAPI.Controllers
             {
                 _response.Message = ex.Message;
                 _response.IsSuccess = false;
-
             }
 
             return _response;
         }
 
         [HttpPost]
+        [Authorize(Roles = "ADMIN")]
         public ResponseDto Post([FromBody] CouponDto couponDto)
         {
             try
             {
                 Coupon obj = _mapper.Map<Coupon>(couponDto);
-                _dbContext.Add(obj);
+                _dbContext.Coupons.Add(obj);
                 _dbContext.SaveChanges();
-
                 _response.Result = _mapper.Map<CouponDto>(obj);
-               
             }
 
             catch (Exception ex)
@@ -112,6 +113,7 @@ namespace BiteBuddy.Services.CouponAPI.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "ADMIN")]
         public ResponseDto Put(int id,[FromBody] CouponDto couponDto)
         {
             try
@@ -127,7 +129,7 @@ namespace BiteBuddy.Services.CouponAPI.Controllers
                 //    _response.Result = NotFound(new { });
                 //}
                
-                _dbContext.Update(obj);
+                _dbContext.Coupons.Update(obj);
                 _dbContext.SaveChanges();
 
                 _response.Result = _mapper.Map<CouponDto>(obj);
@@ -145,6 +147,8 @@ namespace BiteBuddy.Services.CouponAPI.Controllers
         }
 
         [HttpDelete]
+        [Route("{id:int}")]
+        [Authorize(Roles = "ADMIN")]
         public ResponseDto Delete(int id)
         {
             try
