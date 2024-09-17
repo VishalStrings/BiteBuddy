@@ -183,4 +183,3 @@ namespace BiteBuddy.Services.ShoppingCartAPI.Controllers
         }
     }
 }
-ul 
