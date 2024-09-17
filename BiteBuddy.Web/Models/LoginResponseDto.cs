@@ -1,6 +1,4 @@
-﻿using BiteBuddy.Services.AuthAPI.Models.Dto;
-
-namespace BiteBuddy.Web.Models
+﻿namespace BiteBuddy.Web.Models
 {
     public class LoginResponseDto
     {

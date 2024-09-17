@@ -1,5 +1,9 @@
+using AutoMapper;
+using BiteBuddy.Services.ShoppingCartAPI;
 using BiteBuddy.Services.ShoppingCartAPI.Data;
 using BiteBuddy.Services.ShoppingCartAPI.Models.Dto;
+using BiteBuddy.Services.ShoppingCartAPI.Service;
+using BiteBuddy.Services.ShoppingCartAPI.Service.IService;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -12,6 +16,21 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     // get connection string here from appsetting.cs
     options.UseSqlServer(builder.Configuration.GetConnectionString("BiteBuddyConStr"));
 });
+
+IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
+builder.Services.AddSingleton(mapper);
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICouponService, CouponService>();
+
+// below will add http client for product with the base Url 
+builder.Services.AddHttpClient("Product", u => u.BaseAddress =
+new Uri(builder.Configuration["ServiceUrls:ProductAPI"]));
+
+// below will add http client for coupon with the base Url 
+builder.Services.AddHttpClient("Coupon", u => u.BaseAddress =
+new Uri(builder.Configuration["ServiceUrls:CouponAPI"]));
 
 //To start logging using Serilog
 Log.Logger = new LoggerConfiguration().MinimumLevel.Information()

@@ -11,7 +11,7 @@ namespace BiteBuddy.Services.CouponAPI.Controllers
     [Route("api/[controller]")]
     //[Route("api/coupon")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class CouponAPIController : ControllerBase
     {
         private readonly ApplicationDBContext _dbContext;
@@ -91,7 +91,7 @@ namespace BiteBuddy.Services.CouponAPI.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "ADMIN")]
+        //[Authorize(Roles = "ADMIN")]
         public ResponseDto Post([FromBody] CouponDto couponDto)
         {
             try
@@ -113,7 +113,7 @@ namespace BiteBuddy.Services.CouponAPI.Controllers
         }
 
         [HttpPut]
-        [Authorize(Roles = "ADMIN")]
+        //[Authorize(Roles = "ADMIN")]
         public ResponseDto Put(int id,[FromBody] CouponDto couponDto)
         {
             try
@@ -146,9 +146,8 @@ namespace BiteBuddy.Services.CouponAPI.Controllers
             return _response;
         }
 
-        [HttpDelete]
-        [Route("{id:int}")]
-        [Authorize(Roles = "ADMIN")]
+        [HttpPost("RemoveCart")]
+        //[Authorize(Roles = "ADMIN")]
         public ResponseDto Delete(int id)
         {
             try

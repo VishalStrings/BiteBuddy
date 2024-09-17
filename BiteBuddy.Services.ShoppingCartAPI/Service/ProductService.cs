@@ -14,7 +14,8 @@ namespace BiteBuddy.Services.ShoppingCartAPI.Service
         }
         public async Task<IEnumerable<ProductDto>> GetProducts()
         {
-            var client = _httpClientFactory.CreateClient("Product");
+            var client = _httpClientFactory.CreateClient("Product"); // Create client. it wiil get the base address from program.cs Line 23
+
             var response = await client.GetAsync($"/api/product");
             var apiContet = await response.Content.ReadAsStringAsync();
             var resp = JsonConvert.DeserializeObject<ResponseDto>(apiContet);
